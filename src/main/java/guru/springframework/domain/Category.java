@@ -2,11 +2,8 @@ package guru.springframework.domain;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-<<<<<<< HEAD
-import org.hibernate.annotations.LazyCollection;
-import org.hibernate.annotations.LazyCollectionOption;
-=======
->>>>>>> upstream/refactor-for-project-lombok
+
+
 
 import javax.persistence.*;
 import java.util.Set;
