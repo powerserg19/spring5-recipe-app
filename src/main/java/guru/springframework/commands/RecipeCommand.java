@@ -8,6 +8,7 @@ import lombok.Setter;
 import java.util.HashSet;
 import java.util.Set;
 
+
 /**
  * Created by jt on 6/21/17.
  */
@@ -25,6 +26,6 @@ public class RecipeCommand {
     private String directions;
     private Set<IngredientCommand> ingredients = new HashSet<>();
     private Difficulty difficulty;
-    private NotesCommand notes;
+    private NotesCommand notes = new NotesCommand();
     private Set<CategoryCommand> categories = new HashSet<>();
 }
