@@ -1,7 +1,6 @@
 package guru.springframework.controllers;
 
 import guru.springframework.commands.IngredientCommand;
-import guru.springframework.commands.UnitOfMeasureCommand;
 import guru.springframework.services.IngredientService;
 import guru.springframework.services.RecipeService;
 import guru.springframework.services.UnitOfMeasureService;
@@ -9,9 +8,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
-import java.util.Iterator;
 
 /**
  * Created by jt on 6/28/17.
@@ -45,7 +41,6 @@ public class IngredientController {
     @RequestMapping("recipe/{recipeId}/ingredient/{id}/show")
     public String showRecipeIngredient(@PathVariable String recipeId,
                                        @PathVariable String id, Model model){
-        log.debug("Sergio in show");
         model.addAttribute("ingredient", ingredientService.findByRecipeIdAndIngredientId(Long.valueOf(recipeId), Long.valueOf(id)));
         return "recipe/ingredient/show";
     }
@@ -54,16 +49,9 @@ public class IngredientController {
     @RequestMapping("recipe/{recipeId}/ingredient/{id}/update")
     public String updateRecipeIngredient(@PathVariable String recipeId,
                                          @PathVariable String id, Model model){
-
         model.addAttribute("ingredient", ingredientService.findByRecipeIdAndIngredientId(Long.valueOf(recipeId), Long.valueOf(id)));
 
         model.addAttribute("uomList", unitOfMeasureService.listAllUoms());
-        log.debug("Sergio returneding");
-        Iterator it = unitOfMeasureService.listAllUoms().iterator();
-         while(it.hasNext() )
-         {
-           log.debug(it.next().toString());
-         }
         return "recipe/ingredient/ingredientform";
     }
 
