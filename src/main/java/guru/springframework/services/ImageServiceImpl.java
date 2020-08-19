@@ -29,7 +29,6 @@ public class ImageServiceImpl implements ImageService {
     public void saveImageFile(Long recipeId, MultipartFile file) {
 
         try {
-            log.debug("Received a file");
             Recipe recipe = recipeRepository.findById(recipeId).get();
 
             Byte[] byteObjects = new Byte[file.getBytes().length];
